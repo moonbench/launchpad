@@ -1,0 +1,20 @@
+#page {
+    max-width: 1000px;
+    min-width: 600px;
+    margin: 1em auto;
+    padding: 1em;
+}
+
+#body,
+#header,
+#footer {
+    margin: 1em 0 2em 0;
+}
+
+#header {
+    border-bottom: 1px solid #BCBCBC;
+}
+#footer {
+    border-top: 1px solid #BCBCBC;
+    font-size: 0.8rem;
+}

@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/mistdrop.css" />
     <link rel="stylesheet" href="css/page.css" />
 
-    <script type="text/javascript" src="js/minibase.js"></script>
+    <script type="text/javascript" src="js/base.js"></script>
   </head>
 
   <body>

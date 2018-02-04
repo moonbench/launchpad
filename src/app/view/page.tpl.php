@@ -25,7 +25,7 @@
       <hr class="hidden">
 
       <div id="footer">
-        Launchpad v0.0.1
+        Launchpad v0.0.2
       </div>
     </div>
   </body>

@@ -1,7 +1,16 @@
+<?
+$title = "Launchpad";
+if($data->title) $title = $data->title . " - " . $title;
+?>
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Launchpad</title>
+    <title><?= $title ?></title>
+
+    <meta charset="utf-8" />
+<? if(isset($data->description)): ?>
+    <meta name="description" content="<?= clean($data->description) ?>">
+<? endif; ?>
 
     <link rel="stylesheet" href="css/mistdrop.css" />
     <link rel="stylesheet" href="css/page.css" />
@@ -14,18 +23,18 @@
       <div id="header">
         <h1>Launchpad</h1>
       </div>
-
-      <hr class="hidden">
+      <hr>
 
       <div id="body">
-        <?= $data->body ?>
-       Edit this template in "app/view/page.tpl.php"
+       <?= $data->body ?>
       </div>
-
-      <hr class="hidden">
+      <hr>
 
       <div id="footer">
-        Launchpad v0.0.2
+        <div>
+          You can edit or replace the page template in: <code>app/view/page.tpl.php</code>
+        </div>
+        Launchpad 0.1.0
       </div>
     </div>
   </body>

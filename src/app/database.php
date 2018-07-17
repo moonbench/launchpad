@@ -14,6 +14,10 @@ class database{
     self::execute($query, $params);
   }
 
+  public static function sql($query){
+    self::execute($query, []);
+  }
+
   protected static function execute($query, $params){
     self::setup();
 
@@ -57,24 +61,27 @@ class database{
   protected static function setup(){
     if(isset(self::$connection)) return;
 
-    $config = parse_ini_file(APP_ROOT."config/database.default.ini");
-    if(file_exists(APP_ROOT."config/database.ini"))
-      $config = parse_ini_file(APP_ROOT."config/database.ini");
+    self::$connection = self::connect(
+      \app\config::db('username'),
+      \app\config::db('password'),
+      \app\config::db('hostname'),
+      \app\config::db('database')
+    );
 
-    self::$connection = self::connect($config["username"], $config["password"], $config["hostname"], $config["database"]);
+    \app\config::clear_db_auths();
   }
 
   protected static function connect($username, $password, $hostname, $database){
     mysqli_connect($hostname, $username, $password);
 
-    $database_selection = "mysql:";
+    $database_selection = 'mysql:';
     $database_selection .= "dbname=${database};";
     $database_selection .= "host=${hostname};";
     return new \PDO($database_selection, $username, $password);
   }
 
   protected static function handle_errors_if_any($stmt, $query){
-    if($stmt->errorInfo() && $stmt->errorInfo()[0] != "0000"){
+    if($stmt->errorInfo() && $stmt->errorInfo()[0] != '0000'){
       \app\error::php_error(-1, $stmt->errorInfo(), $query, 1);
     }
   }

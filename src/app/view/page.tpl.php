@@ -1,8 +1,8 @@
 <?
-$title = clean(!!$data->title ? $data->title." - ".SITE_CONFIG['name'] : SITE_CONFIG['default_title']);
-$description = clean(!!$data->description ? $data->description : SITE_CONFIG['default_description']);
-$keywords = clean(!!$data->keywords ? $data->keywords : SITE_CONFIG['default_keywords']);
-$image = clean(!!$data->image ? $data->image : SITE_CONFIG['default_image']);
+$title = clean(!!$data->title ? $data->title." - ".\app\config::site('name') : \app\config::site('default_title'));
+$description = clean(!!$data->description ? $data->description : \app\config::site('default_description'));
+$keywords = clean(!!$data->keywords ? $data->keywords : \app\config::site('default_keywords'));
+$image = clean(!!$data->image ? $data->image : \app\config::site('default_image'));
 $url = clean(!!$data->url ? $data->url : "https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 ?>
 <!DOCTYPE html>

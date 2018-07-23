@@ -18,7 +18,7 @@ $url = clean(!!$data->url ? $data->url : "https://".$_SERVER['HTTP_HOST'].$_SERV
     <meta property="og:title" content="<?= $title ?>" />
     <meta property="og:image" content="<?= $image ?>" />
     <meta property="og:description" content="<?= $description ?>" />
-    <meta property="og:site_name" content="<?= SITE_CONFIG['name'] ?>" />
+    <meta property="og:site_name" content="<?= \app\config::site('name') ?>" />
     <meta property="og:url" content="<?= $url ?>" />
     <meta property="og:type" content="website" />
 
